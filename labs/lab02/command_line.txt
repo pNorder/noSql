@@ -1,0 +1,8 @@
+\? 
+    This command brings up a simple version of a manual for working with 
+    postgres itself, offering configuation of buffers and available 
+    commands
+
+\h
+    This command brings up the various SQL commands that the user can 
+    issue, like creating indexes, keys, and selecting from tables

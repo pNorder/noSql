@@ -1,0 +1,9 @@
+The MATCH constraints enfoce more specific behavior on key creation.
+From the postgresql online documentation:
+    There are three match types: MATCH FULL, MATCH PARTIAL, and MATCH SIMPLE,
+     which is also the default. MATCH FULL will not allow one column of a mul-
+     ticolumn foreign key to be null unless all foreign key columns are null.
+     MATCH SIMPLE allows some foreign key columns to be null while other parts
+      of the foreign key are not null. MATCH PARTIAL is not yet implemented.
+
+      

@@ -1,3 +1,5 @@
+--Reference used: http://shuber.io/porting-activerecord-soft-delete-behavior-to-postgres/
+
 CREATE OR REPLACE FUNCTION set_inactive() RETURNS trigger AS $$
     DECLARE
     BEGIN

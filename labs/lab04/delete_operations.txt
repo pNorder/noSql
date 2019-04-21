@@ -1,0 +1,9 @@
+To delete a single column from an Hbase table, the syntax is
+delete '<table_name>', '<row_key>', '<column_key>'
+example
+delete 'wiki', 'Home', 'text:'
+
+To delete all columns within a row: 
+deleteall '<table_name>', '<row_key>'
+example
+deleteall 'wiki', 'Home'

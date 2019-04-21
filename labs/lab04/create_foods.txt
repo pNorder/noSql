@@ -1,0 +1,12 @@
+7-3-1: The row key should be the food code
+7-3-2: Column Family Options
+BloomFilter: since all food data columns are present, just the row makes sense
+Versions: Versioning might make sense if the data includes brand name items. this way
+it would be possible to track food content changes across time for one product
+Compression: since there is not large amounts of text, compression will not make any huge improvements
+
+7-3-3:
+create 'foods', 'facts'
+ 
+
+For options, I used the ones I described above

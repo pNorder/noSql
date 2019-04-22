@@ -2,5 +2,5 @@ get 'foods', '63409010'
 #gets data about guacamole
 
 
-get 'foods', '75122100'
-#gets data about bell peppers
+get 'foods', '75122100', 'facts:Calories'
+#gets calorie information about bell peppers

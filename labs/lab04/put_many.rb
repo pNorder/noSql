@@ -14,7 +14,7 @@ def put_many(table_name, row, column_values)
 
 	column_values.each do |key, value|
 		famTitle = key.split(":")
-		puts famTitle
+		#Splits family and qualifier
 		p.add(*jbytes(famTitle[0],famTitle[1], value))
 	end
 	table.put(p)

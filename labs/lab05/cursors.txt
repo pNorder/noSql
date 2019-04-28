@@ -1,0 +1,3 @@
+https://docs.mongodb.com/manual/reference/method/js-cursor/index.html
+https://docs.mongodb.com/manual/tutorial/query-documents/index.html
+https://docs.mongodb.com/manual/tutorial/query-arrays/index.html

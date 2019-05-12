@@ -1,0 +1,3 @@
+HEAD: checks the database's existence
+COPY: copies the design document
+ANY: Rewrites HTTP request for the specified path by using stored array of routing rules or JavaScript function

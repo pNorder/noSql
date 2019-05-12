@@ -1,0 +1,2 @@
+curl -u admin:admin -X PUT "${COUCH_ROOT_URL}"/nhlteams
+curl -u admin:admin -X DELETE "${COUCH_ROOT_URL}"/nhlteams

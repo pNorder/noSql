@@ -1,0 +1,7 @@
+curl -u admin:admin -X PUT "${COUCH_ROOT_URL}music/docid" -d '{"_attachments": {"message.txt": {"data": "aGVsbG8sIENvdWNoIQ==", "content_type": "text/plain"}}}' -H "Content-Type:application/json"
+
+
+curl -u admin:admin -i -GET "${COUCH_ROOT_URL}/music/docid/message.txt"
+
+
+

@@ -1,0 +1,2 @@
+curl -u admin:admin -X PUT "${COUCH_ROOT_URL}/music/002" -d \
+'{ " Name " : " Raju " , " age " :" 23 " , " Designation " : " Designer " }'

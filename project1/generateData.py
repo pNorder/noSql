@@ -25,10 +25,13 @@ def generateUsers():
                 
 def generateRecipes():
         recipeFile = open("recipes.csv", "w")
+        recipeMongo = open("recipesMongo.js", "w")
         for i in range(0, 50):
                 recipeFile.write(str(i) + ',' + "recipe" + str(i) + ',' 
                                  + "description " + str(i) + ',' + 
                                  "Instructions " + str(i) + "\n")
+                
+                recipeMongo.write("db.recipes.insert({name: \"recipe" + str(i) + "\",instructions: \"instructions for recipe " + str(i) + "\", description: \"description for recipe " + str(i) + "\", ingredients: [\"dough\"]})\n")
                 
 def generateIngredients():
         ingred = ["mozzarella", "parmesean", "ricota", "gorgonzola", "flour", "salt", "olive oil",
@@ -37,12 +40,15 @@ def generateIngredients():
 def generateOrders():
     fake = Faker()
     orderFile = open("orders.csv", "w")
+    orderMongo = open("ordersMongo.js", "w")
     for i in range(0,100000):
         user = randint(0, 4999)
         recipe = randint(0, 49)
         datetime = fake.date() +" " + fake.time()
         orderFile.write(str(user) + ',' + datetime + ',' + str(recipe) + '\n')
         
+        orderMongo.write("db.orders.insert({userID: \"" + str(user) + "\", recpie: \"" + str(recipe) + "\", timestamp: \""+ datetime + "\"})\n")
+        
 generateUsers()
-#generateRecipes()
-#generateOrders()
+generateRecipes()
+generateOrders()

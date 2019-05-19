@@ -45,3 +45,7 @@ CREATE TABLE RecipeIngredients (
     amount INTEGER,
     PRIMARY KEY (recipe_id, ingredient_id)
 );
+
+copy Users from '/app/postgres/project1/users.csv' (FORMAT CSV, DELIMITER (',') );
+copy Recipes from '/app/postgres/project1/recipes.csv' (FORMAT CSV, DELIMITER (',') );
+copy Orders from '/app/postgres/project1/orders.csv' (FORMAT CSV, DELIMITER (',') );

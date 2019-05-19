@@ -34,9 +34,9 @@ PRIMARY KEY (ingredient_id)
 
 CREATE TABLE Orders(
 user_id SERIAL REFERENCES Users,
-time TEXT NOT NULL,
+time TIMESTAMP NOT NULL,
 recipe_id SERIAL REFERENCES Recipes,
-PRIMARY KEY (user_id, recipe_id)
+PRIMARY KEY (user_id, recipe_id, time)
 );
 
 CREATE TABLE RecipeIngredients (

@@ -1,6 +1,5 @@
 DROP DATABASE IF EXISTS bobspizza;
 CREATE DATABASE bobspizza;
-\c bobspizza
 
 CREATE Table Users (
 user_id SERIAL,
@@ -20,7 +19,7 @@ CREATE TABLE Recipes (
 recipe_id SERIAL,
 name TEXT NOT NULL,
 description TEXT NOT NULL,
-cooking_instruction TEXT NOT NUll,
+cooking_instruction TEXT NOT NULL,
 PRIMARY KEY(recipe_id)
 );
 

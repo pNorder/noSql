@@ -3,8 +3,7 @@ function addOrder(user, recipe){
     for(var i = 0; i < recipeDoc.ingredients.length; i++){
         var ingrName = recipeDoc.ingredients[i];
         var requiredAmt = recipeDoc.quantities[i];
-
-        var ingredientDoc = db.ingredients.findOne({name: ingrName});
+        var ingredientDoc = db.ingredients.findOne({"name": ingrName});
         var currentAmt = ingredientDoc.quantity;
         if(requiredAmt > currentAmt){
             print(`Error: Not enough ${ingrName}\n`);

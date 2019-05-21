@@ -20,10 +20,17 @@ def generateUsers():
         userFile.write(str(user_id) + ',' + email + ',' + firstName + ',' + surname + ',' + str(phone) +
                        ',' + street + ",NULL,"  + city + ',' + state + ',' + zipcode + '\n')
         
-        userMongo.write("db.users.insert({_id: \"" + str(user_id) + "\", emailAddress:\"" + email + "\",name: { first: \"" + firstName + "\", last:\"" + surname + "\"}, phoneNumber: \"" + str(phone) + "\", address: { line1: \"" + street + "\"},city: \"" + city + "\", state: \"" + state + "\", zip: \"" + zipcode + "\"})\n") 
+        userMongo.write("db.users.insert({_id: \"" + str(user_id) + 
+                        "\", emailAddress:\"" + email + "\",name: { first: \"" + 
+                        firstName + "\", last:\"" + surname + "\"}, phoneNumber: \"" + 
+                        str(phone) + "\", address: { line1: \"" + street + "\"},city: \"" 
+                        + city + "\", state: \"" + state + "\", zip: \"" + zipcode + "\"})\n") 
                         
                 
 def generateRecipes():
+        ingred = ["mozzarella", "parmesean", "ricota", "gorgonzola", "flour", "salt", "olive oil",
+                   "mushrooms", "bell peppers", "banana peppers", "spinach", "Alfalfa Sprouts",  "Artichoke hearts", "Avocado  Baby leeks", "Beetroot", "Black Beans", "Broccoli", "Capers", "Capicolla", "Carrot", "Cherry tomatoes", "Dried tomatoes", "Eggplant", "Fungi", "Fungi carciofi", "Green peppers", "Kalamata olives", "Lettuce", "Mushrooms", "Onions", "Olives", "Peas", "Porcini mushrooms", "Portobello Mushrooms", "Red beans", "Red onions", "Red peppers", "Roast cauliflower", "Roasted eggplant", "Roasted Garlic", "Roasted peppers", "scallions", "Shallots", "Snow peas", "Spinach", "Sun dried tomatoes", "Sweet corn", "Watercress", "Wild mushrooms", "Yellow peppers", "Yellow squash", "Zucchini", "Bacon", "meatballs", "chicken", "peperoni", "ham", "sausage"]
+                        
         recipeFile = open("postgres/recipes.csv", "w")
         recipeMongo = open("mongo/recipesMongo.js", "w")
         for i in range(0, 50):
@@ -31,11 +38,36 @@ def generateRecipes():
                                  + "description " + str(i) + ',' + 
                                  "Instructions " + str(i) + "\n")
                 
-                recipeMongo.write("db.recipes.insert({_id: \"" + str(i) + "\", name: \"recipe" + str(i) + "\",instructions: \"instructions for recipe " + str(i) + "\", description: \"description for recipe " + str(i) + "\", ingredients: [\"dough\"], quantities: [1]})\n")
-                
+                thisList = []
+                for k in ingred:
+                        if(randint(0, 100)<25):
+                                thisList.append(k)
+                qtylist = []
+                for j in thisList:
+                        qtylist.append(randint(1, 4))
+                recipeMongo.write("db.recipes.insert({_id: \"" + str(i) + 
+                                  "\", name: \"recipe" + str(i) + 
+                                  "\",instructions: \"instructions for recipe "
+                                   + str(i) + "\", description: \"description for recipe " 
+                                   + str(i) + "\", ingredients: " + str(thisList) + ", quantities: " + str(qtylist) + "})\n")
+
+def generateGookedWith():
+        fake = Faker()
+                        
 def generateIngredients():
         ingred = ["mozzarella", "parmesean", "ricota", "gorgonzola", "flour", "salt", "olive oil",
-                   ""]
+                   "mushrooms", "bell peppers", "banana peppers", "spinach", "Alfalfa Sprouts",  "Artichoke hearts", "Avocado  Baby leeks", "Beetroot", "Black Beans", "Broccoli", "Capers", "Capicolla", "Carrot", "Cherry tomatoes", "Dried tomatoes", "Eggplant", "Fungi", "Fungi carciofi", "Green peppers", "Kalamata olives", "Lettuce", "Mushrooms", "Onions", "Olives", "Peas", "Porcini mushrooms", "Portobello Mushrooms", "Red beans", "Red onions", "Red peppers", "Roast cauliflower", "Roasted eggplant", "Roasted Garlic", "Roasted peppers", "scallions", "Shallots", "Snow peas", "Spinach", "Sun dried tomatoes", "Sweet corn", "Watercress", "Wild mushrooms", "Yellow peppers", "Yellow squash", "Zucchini", "Bacon", "meatballs", "chicken", "peperoni", "ham", "sausage"]
+        ingFile = open("postgres/ingredients.csv", "w")
+        ingMongo = open("mongo/ingredientsMongo.js", "w")
+        for ingredient in ingred:
+                quantity = randint(15, 150)
+                description = "fresh " + ingredient + " is delicious on our pizza"
+                ingFile.write(ingredient + ',' + description + ',' + str(quantity) +'\n')
+                
+                ingMongo.write("db.ingredients.insert({name: \"" + ingredient + "\"," +
+                               " description: \"" + description + "\", quantity:\"" + 
+                               str(quantity) + "\"})\n")
+                
 
 def generateOrders():
     fake = Faker()
@@ -47,8 +79,10 @@ def generateOrders():
         datetime = fake.date() +" " + fake.time()
         orderFile.write(str(user) + ',' + datetime + ',' + str(recipe) + '\n')
         
-        orderMongo.write("db.orders.insert({userID: \"" + str(user) + "\", recipe: \"" + str(recipe) + "\", timestamp: \""+ datetime + "\"})\n")
-        
-generateUsers()
-generateRecipes()
-generateOrders()
+        orderMongo.write("db.orders.insert({userID: \"" + str(user) + "\", recipe: \"" 
+                         + str(recipe) + "\", timestamp: \""+ datetime + "\"})\n")
+  
+generateIngredients()      
+#generateUsers()
+#generateRecipes()
+#generateOrders()

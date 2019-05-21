@@ -52,17 +52,30 @@ def generateRecipes():
                                    + str(i) + "\", ingredients: " + str(thisList) + ", quantities: " + str(qtylist) + "})\n")
 
 def generateGookedWith():
-        fake = Faker()
-                        
+        cwFile = open("postgres/cookedwith.csv", "w")
+        for i in range(0, 50):
+                #through all recipes
+                numIngredients = randint(3, 10)
+                added = set()
+                for k in range (0, numIngredients):
+                        ingredient_id = randint(0, 57)
+                        if(ingredient_id not in added):
+                                ingredient_amt = randint(2, 7)
+                                cwFile.write(str(i) + "," + str(ingredient_id) + "," + str(ingredient_amt) +"\n" )
+                                added.add(ingredient_id)
+                
+                                                
 def generateIngredients():
         ingred = ["mozzarella", "parmesean", "ricota", "gorgonzola", "flour", "salt", "olive oil",
                    "mushrooms", "bell peppers", "banana peppers", "spinach", "Alfalfa Sprouts",  "Artichoke hearts", "Avocado  Baby leeks", "Beetroot", "Black Beans", "Broccoli", "Capers", "Capicolla", "Carrot", "Cherry tomatoes", "Dried tomatoes", "Eggplant", "Fungi", "Fungi carciofi", "Green peppers", "Kalamata olives", "Lettuce", "Mushrooms", "Onions", "Olives", "Peas", "Porcini mushrooms", "Portobello Mushrooms", "Red beans", "Red onions", "Red peppers", "Roast cauliflower", "Roasted eggplant", "Roasted Garlic", "Roasted peppers", "scallions", "Shallots", "Snow peas", "Spinach", "Sun dried tomatoes", "Sweet corn", "Watercress", "Wild mushrooms", "Yellow peppers", "Yellow squash", "Zucchini", "Bacon", "meatballs", "chicken", "peperoni", "ham", "sausage"]
         ingFile = open("postgres/ingredients.csv", "w")
         ingMongo = open("mongo/ingredientsMongo.js", "w")
+        i = 0
         for ingredient in ingred:
                 quantity = randint(15, 150)
                 description = "fresh " + ingredient + " is delicious on our pizza"
-                ingFile.write(ingredient + ',' + description + ',' + str(quantity) +'\n')
+                ingFile.write(str(i) + ","+ ingredient + ',' + description + ',' + str(quantity) +'\n')
+                i = i + 1
                 
                 ingMongo.write("db.ingredients.insert({name: \"" + ingredient + "\"," +
                                " description: \"" + description + "\", quantity:\"" + 
@@ -84,5 +97,6 @@ def generateOrders():
   
 generateIngredients()      
 #generateUsers()
-#generateRecipes()
+generateRecipes()
 #generateOrders()
+generateGookedWith()

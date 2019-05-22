@@ -42,7 +42,7 @@ PRIMARY KEY (user_id, time)
 CREATE TABLE CookedWith (
     recipe_id integer not null REFERENCES Recipes,
     ingredient_id integer not null REFERENCES Ingredients,
-    amount INTEGER,
+    quantity INTEGER,
     PRIMARY KEY (recipe_id, ingredient_id)
 );
 

@@ -36,7 +36,7 @@ CREATE TABLE Orders(
 user_id integer not null REFERENCES Users,
 time TIMESTAMP NOT NULL,
 recipe_id integer not null REFERENCES Recipes,
-PRIMARY KEY (user_id, recipe_id, time)
+PRIMARY KEY (user_id, time)
 );
 
 CREATE TABLE CookedWith (

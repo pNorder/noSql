@@ -1,6 +1,7 @@
 DROP DATABASE IF EXISTS bobspizza;
 CREATE DATABASE bobspizza;
 
+\c bobspizza
 CREATE Table Users (
 user_id integer not null,
 email_addr TEXT NOT NULL,
@@ -49,4 +50,4 @@ copy Users from '/app/postgres/project1/postgres/users.csv' (FORMAT CSV, DELIMIT
 copy Recipes from '/app/postgres/project1/postgres/recipes.csv' (FORMAT CSV, DELIMITER (',') );
 copy Ingredients from '/app/postgres/project1/postgres/ingredients.csv' (FORMAT CSV, DELIMITER(',') );
 copy Orders from '/app/postgres/project1/postgres/orders.csv' (FORMAT CSV, DELIMITER (',') );
-copy CookedWith from 'app/postgres/porject1/postgres/cookedwith.csv' (FORMAT CSV, DELIMITER (',') );
+copy CookedWith from '/app/postgres/project1/postgres/cookedwith.csv' (FORMAT CSV, DELIMITER (',') );

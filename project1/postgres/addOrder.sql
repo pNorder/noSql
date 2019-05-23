@@ -1,4 +1,4 @@
-DROP FUNCTION add_order(integer, integer);
+DROP FUNCTION IF EXISTS add_order(integer, integer);
 CREATE OR REPLACE FUNCTION add_order(
     user_id_param integer,
     recipe_id_param integer)

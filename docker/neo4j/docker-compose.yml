@@ -1,0 +1,20 @@
+version: '2'
+volumes:
+  neo4jdata:
+services:
+  nosql-neo4j:
+    build: .
+    image: "nosql-neo4j"
+    container_name: "nosql-neo4j"
+    hostname: "nosql-neo4j"
+    tty: true
+    environment:
+      - NEO4J_AUTH=none
+    volumes:
+      - neo4jdata:/data
+      - ../../labs:/app/neo4j/labs
+      - ../../projects:/app/neo4j/projects
+    ports:
+      - 7474:7474
+      - 7473:7473
+      - 7687:7687

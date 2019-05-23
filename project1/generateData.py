@@ -5,7 +5,7 @@ def generateUsers():
     fake = Faker()
     fake.random.seed(12345)
     userFile = open("postgres/users.csv", "w")
-    userMongo = open("mongo/usersMongo.js", "w")
+    userMongo = open("mongo/data.js", "a+")
     for i in range(0,5000):
         user_id = i
         email = fake.email()
@@ -32,7 +32,7 @@ def generateRecipes():
                    "mushrooms", "bell peppers", "banana peppers", "spinach", "Alfalfa Sprouts",  "Artichoke hearts", "Avocado  Baby leeks", "Beetroot", "Black Beans", "Broccoli", "Capers", "Capicolla", "Carrot", "Cherry tomatoes", "Dried tomatoes", "Eggplant", "Fungi", "Fungi carciofi", "Green peppers", "Kalamata olives", "Lettuce", "Mushrooms", "Onions", "Olives", "Peas", "Porcini mushrooms", "Portobello Mushrooms", "Red beans", "Red onions", "Red peppers", "Roast cauliflower", "Roasted eggplant", "Roasted Garlic", "Roasted peppers", "scallions", "Shallots", "Snow peas", "Spinach", "Sun dried tomatoes", "Sweet corn", "Watercress", "Wild mushrooms", "Yellow peppers", "Yellow squash", "Zucchini", "Bacon", "meatballs", "chicken", "peperoni", "ham", "sausage"]
                         
         recipeFile = open("postgres/recipes.csv", "w")
-        recipeMongo = open("mongo/recipesMongo.js", "w")
+        recipeMongo = open("mongo/data.js", "a+")
         for i in range(0, 50):
                 recipeFile.write(str(i) + ',' + "recipe" + str(i) + ',' 
                                  + "description " + str(i) + ',' + 
@@ -69,7 +69,7 @@ def generateIngredients():
         ingred = ["mozzarella", "parmesean", "ricota", "gorgonzola", "flour", "salt", "olive oil",
                    "mushrooms", "bell peppers", "banana peppers", "spinach", "Alfalfa Sprouts",  "Artichoke hearts", "Avocado ", "Baby leeks", "Beetroot", "Black Beans", "Broccoli", "Capers", "Capicolla", "Carrot", "Cherry tomatoes", "Dried tomatoes", "Eggplant", "Fungi", "Fungi carciofi", "Green peppers", "Kalamata olives", "Lettuce", "Mushrooms", "Onions", "Olives", "Peas", "Porcini mushrooms", "Portobello Mushrooms", "Red beans", "Red onions", "Red peppers", "Roast cauliflower", "Roasted eggplant", "Roasted Garlic", "Roasted peppers", "scallions", "Shallots", "Snow peas", "Spinach", "Sun dried tomatoes", "Sweet corn", "Watercress", "Wild mushrooms", "Yellow peppers", "Yellow squash", "Zucchini", "Bacon", "meatballs", "chicken", "peperoni", "ham", "sausage"]
         ingFile = open("postgres/ingredients.csv", "w")
-        ingMongo = open("mongo/ingredientsMongo.js", "w")
+        ingMongo = open("mongo/data.js", "a+")
         i = 0
         for ingredient in ingred:
                 quantity = randint(15, 150)
@@ -85,7 +85,7 @@ def generateIngredients():
 def generateOrders():
     fake = Faker()
     orderFile = open("postgres/orders.csv", "w")
-    orderMongo = open("mongo/ordersMongo.js", "w")
+    orderMongo = open("mongo/data.js", "a+")
     for i in range(0,100000):
         user = randint(0, 4999)
         recipe = randint(0, 49)
@@ -96,7 +96,7 @@ def generateOrders():
                          + str(recipe) + "\", timestamp: \""+ datetime + "\"})\n")
   
 generateIngredients()      
-#generateUsers()
+generateUsers()
 generateRecipes()
-#generateOrders()
+generateOrders()
 generateGookedWith()

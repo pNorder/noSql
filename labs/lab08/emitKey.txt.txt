@@ -1,0 +1,9 @@
+--emit() can also use JSON arrays as the key
+
+--the key can also be a number (like a date etc...)
+
+--When you emit an array of values as a key, it will narrow the sorting and grouping
+of the result 
+
+citation:
+http://docs.couchdb.org/en/2.1.1/ddocs/views/collation.html

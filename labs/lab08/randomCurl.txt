@@ -1,0 +1,1 @@
+curl -u admin:admin "${COUCH_ROOT_URL}/music/_design/random/_view/artist?startkey=`ruby -e 'puts rand'`"

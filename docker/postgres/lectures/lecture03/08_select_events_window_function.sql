@@ -1,1 +1,0 @@
-SELECT title, count(*) OVER (PARTITION BY venue_id) FROM events;

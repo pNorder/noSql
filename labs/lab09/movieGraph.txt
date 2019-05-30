@@ -1,0 +1,14 @@
+Step 1: Introduction, it is a mini graph containing actors and directors
+Step 2: Create. There is code in the box with many create statements, inserting
+actors and relationships between them
+Step 3: Finding. There are a few match clauses that are looking for actors, 
+movies, and with several filters
+Step 4: Querying. There are several statements that are looking for relationships
+between the data, and finding patterns. Of these are finding the movies X actor
+has acted in, and people who have co-starred with X actor
+Step 5: Solving. There is code to calculate the actors within 2 degrees of 
+kevin bacon, and to calculate the shortest distance between meg ryan and
+kevin bacon
+Step 6: Recommend. Suggesting co-actors for tom hanks based on actors who have
+worked with tom hanks 1st degree connections
+Step 7: Clean up. Removing all nodes and relationships

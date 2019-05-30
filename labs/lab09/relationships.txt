@@ -1,0 +1,26 @@
+CREATE(me:Person{name:"Trace Levinson", age:20})
+CREATE(emmett:Person{name:"Emmett White"})
+CREATE(peyton:Person{name:"Peyton Norder"})
+CREATE(bigbird:Person{name:"Nathan Sirett", alias:"Big Bird"})
+
+match (me:Person{name:"Trace Levinson"}), (emmett:Person{name:"Emmett White"})
+create (me)-[cw:worked_with]->(emmett)
+
+match (me:Person{name:"Trace Levinson"}), (emmett:Person{name:"Emmett White"})
+create (emmett)-[cw:worked_with]->(me)
+
+match(emmett:Person{name:"Emmett White"}), (bigbird:Person{name:"Nathan Sirett"})
+create (emmett)-[fo:friend_of]->(bigbird)
+
+match(emmett:Person{name:"Emmett White"}), (bigbird:Person{name:"Nathan Sirett"})
+create (bigbird)-[fo:friend_of]->(emmett)
+
+match(bigbird:Person{name:"Nathan Sirett"}), (peyton:Person{name:"Peyton Norder"})
+create (bigbird)-[ct:club_teammate]->(peyton)
+
+match(me:Person{name:"Trace Levinson"}), (peyton:Person{name:"Peyton Norder"})
+create (me)-[cm:classmate]->(peyton)
+
+match(others:Person), (me:Person{name:"Trace Levinson"})
+where others.name <> "Trace Levinson" 
+create (me)-[im:intramural_teammate]->(others)

@@ -1,0 +1,4 @@
+The MERGE command matches existing nodes and binds to them, or if they do not exist,
+it creates new data and binds. It allows the user to then decide what happens
+with the bound data depending on whether it was matched or if it had to be
+created.

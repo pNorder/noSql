@@ -1,0 +1,18 @@
+version: '2'
+services:
+  nosql-neo4j-movies:
+    build: .
+    image: "nosql-neo4j-movies"
+    container_name: "nosql-neo4j-movies"
+    hostname: "nosql-neo4j-movies"
+    tty: true
+    environment:
+      - NEO4J_AUTH=none
+    volumes:
+      - ../examples:/app/neo4j/examples
+      - ../../../labs:/app/neo4j/labs
+      - ../../../projects:/app/neo4j/projects
+    ports:
+      - 7474:7474
+      - 7473:7473
+      - 7687:7687

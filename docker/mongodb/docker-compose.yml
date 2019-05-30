@@ -10,6 +10,7 @@ services:
     environment:
       - NODE_ENV=development
     volumes:
+      - ../../project1:/app/mongodb/project1
       - ../../labs:/app/mongodb/labs
       - ./examples:/app/mongodb/examples
       - ./lectures:/app/mongodb/lectures

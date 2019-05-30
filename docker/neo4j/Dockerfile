@@ -7,4 +7,4 @@ RUN apk update && apk add \
     curl
 
 # Add examples and lectures
-ADD ./examples /app/couchdb/examples
+ADD ./examples /app/neo4j/examples

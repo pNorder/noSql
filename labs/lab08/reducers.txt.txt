@@ -1,0 +1,11 @@
+native reducers available in CouchDB:
+- _sum : adds up the emitted values. Must be type number 
+- _count : counts the number of values emitted. Can be any type. 
+- _stats : calculates numerical statisitcs on emitted values. Must be type number. 
+
+The benefits of using native reducers over custom JavaScript reducers are 
+native reducers are faster than the JavaScript reducers because they run inside CouchDB
+
+
+
+-citation: https://wiki.apache.org/couchdb/Built-In_Reduce_Functions#Built-In_Reduce_Functions-1

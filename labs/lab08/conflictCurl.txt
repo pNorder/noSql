@@ -1,0 +1,1 @@
+curl "${COUCH_ROOT_URL}/music/_design/conflicts/_view/new-view"

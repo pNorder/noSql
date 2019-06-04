@@ -47,7 +47,7 @@ CREATE TABLE Supervises(
     PRIMARY KEY (doctor_id, patient_id)
 );
 
-CREATE TABLE Healing(
+CREATE TABLE PatientTreated(
     patient_id integer not null REFERENCES Patients,
     treatment_id integer not null REFERENCES Treatments,
     start_date date,
@@ -68,3 +68,9 @@ FROM  '/app/postgres/project2/postgres/treatments.csv' (FORMAT CSV, DELIMITER ('
 
 COPY Supervises (doctor_id, patient_id, date_assigned) 
 FROM  '/app/postgres/project2/postgres/supervises.csv' (FORMAT CSV, DELIMITER (',') );
+
+COPY AiledBy (patient_id, illness_id, diagnosis_date)
+FROM '/app/postgres/project2/postgres/ailedby.csv' (FORMAT CSV, DELIMITER (',') );
+
+COPY PatientTreated (patient_id, treatment_id, start_date, num_treatments)
+FROM '/app/postgres/project2/postgres/patientstreated.csv' (FORMAT CSV, DELIMITER (',') );

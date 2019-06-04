@@ -57,10 +57,25 @@ def generateSupervises(numDoc, numPatients, filename):
             else:
                 j = j-1
             
+            
+def generateAiledBy(numPatients, filename):
+    fake = Faker()
+    ailementFile = open(filename, "w+")
+    for i in range(1, numPatients):
+        ailementFile.write(str(i)+ "," + str(randint(1,1207)) + "," + fake.date() +"\n")
+def generatePatientTreated(numPatients, filename):
+    fake = Faker()
+    ptFile = open(filename, "w+")
+    for i in range(1, numPatients):
+        ptFile.write(str(i) + "," + str(randint(1,867))+ "," + fake.date()"," + 
+                           str(randint(1, 10))+"\n")
 
 
+numpatients = 10000
 generateDoctors(100, "/home/trace/Documents/nosql/project2/postgres/doctors.csv",
     "/home/trace/Documents/nosql/project2/postgres/patients.csv")
-generatePatients(10000,"/home/trace/Documents/nosql/project2/postgres/patients.csv")
+generatePatients(numpatients,"/home/trace/Documents/nosql/project2/postgres/patients.csv")
 generateTreatments("/home/trace/Documents/nosql/project2/postgres/treatments.csv")
-generateSupervises(100, 10000, "/home/trace/Documents/nosql/project2/postgres/supervises.csv")
+generateSupervises(100, numpatients, "/home/trace/Documents/nosql/project2/postgres/supervises.csv")
+generateAiledBy(numpatients, "/home/trace/Documents/nosql/project2/postgres/ailedby.csv")
+generatePatientTreated(numpatients, "/home/trace/Documents/nosql/project2/postgres/patientstreated.csv")

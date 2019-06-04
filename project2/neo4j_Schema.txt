@@ -1,0 +1,18 @@
+CREATE (d:Doctor {name: "Mantis Toboggan"})
+
+
+CREATE (p:Patient {name: "Patient01"})
+
+
+CREATE (i:Illness {name: "The Clap"})
+
+CREATE (t:Treatment {name: "Leech"})
+
+MATCH (d:Doctor {name: "Mantis Toboggan"}), (p:Patient {name: "Patient01"}) CREATE (d)-[r:Treats]->(p)
+
+MATCH (i:Illness {name: "The Clap"}), (p:Patient {name: "Patient01"}) CREATE (p)-[r:ailed_by]->(i)
+
+MATCH (t:Treatment {name: "Leech"}), (p:Patient {name: "Patient01"}) CREATE (p)-[r:recieves]->(t)
+
+
+

@@ -24,7 +24,7 @@ CREATE TABLE Illness(
     illness_id integer not null,
     name text not null,
     type text not null
-)
+);
 
 CREATE TABLE AiledBy(
     patient_id integer not null REFERENCES Patients,
@@ -37,5 +37,5 @@ CREATE TABLE Treats(
     doctor_id integer not null REFERENCES Doctors,
     patient_id integer not null REFERENCES Patients,
     treatment_start date,
-    treatment
-)
+    treatment text not null
+);

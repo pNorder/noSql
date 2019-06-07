@@ -1,0 +1,7 @@
+Following commands should load the data, if not please go into the file and copy and paste everything into the cypher shell
+
+cat doctors.cql | cypher-shell
+cat patients.cql | cypher-shell
+cat treatments.cql | cypher-shell
+cat illness.cql | cypher-shell
+cat match.cql | cypher-shell
